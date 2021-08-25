@@ -29,7 +29,6 @@ class UsefulPlugin : JavaPlugin() {
             HomeCommand.register(this)
             GamemodeCommand.register(this)
             BackCommand.register(this)
-            DebugCommand.register(this)
         }
         saveDefaultConfig()
         ConfigManager.loadConfig()
