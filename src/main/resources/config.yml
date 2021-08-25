@@ -1,0 +1,9 @@
+home:
+  # 기본 홈 이름
+  default-home-name: "default"
+
+  # 홈 이름의 최대 글자수
+  max-name-letter: 16
+
+  # 플레이어가 가질 수 있는 최대 홈의 개수
+  max-home-count: 10

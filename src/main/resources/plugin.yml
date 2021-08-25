@@ -1,0 +1,8 @@
+name: UsefulPlugin
+version: ${project.version}
+main: com.github.dohyeon0608.usefulplugin.usefulplugin.UsefulPlugin
+api-version: 1.17
+authors: [ dohyeon0608 ]
+description: um its usefuliy plugin
+libraries:
+  - io.github.monun:kommand:2.6.4
