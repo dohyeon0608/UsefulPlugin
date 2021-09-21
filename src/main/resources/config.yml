@@ -1,3 +1,7 @@
+back:
+  # 사망 후 back 사용 가능 쿨타임
+  back-delay-time: 10
+
 home:
   # 기본 홈 이름
   default-home-name: "default"

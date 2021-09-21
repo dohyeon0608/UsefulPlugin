@@ -23,15 +23,14 @@ object HomeGUI {
             clear()
             for (n in 0..45) {
                 try {
-                    val item = player.getHomeIcon(player.getHomeList()[n])?.apply {
+                    player.getHomeIcon(player.getHomeList()[n])?.apply {
                         itemMeta.apply {
                             val lore = lore()
                             lore?.add(text(""))
                             lore?.add(text("${ChatColor.GREEN}▶ 해당 홈으로 이동합니다."))
                             lore(lore)
                         }.also { itemMeta = it }
-                    }
-                    if (item != null) addItem(item) else break
+                    } ?: break
                 } catch (e: Exception) {
                     break
                 }
@@ -51,15 +50,14 @@ object HomeGUI {
             clear()
             for (n in 0..44) {
                 try {
-                    val item = player.getHomeIcon(player.getHomeList()[n])?.apply {
+                    player.getHomeIcon(player.getHomeList()[n])?.apply {
                         itemMeta.apply {
                             val lore = lore()
                             lore?.add(text(""))
                             lore?.add(text("${ChatColor.RED}▶ 해당 홈을 삭제합니다."))
                             lore(lore)
                         }.also { itemMeta = it }
-                    }
-                    if (item != null) addItem(item) else break
+                    } ?: break
                 } catch (e: Exception) {
                     break
                 }

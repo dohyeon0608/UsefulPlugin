@@ -16,11 +16,4 @@ class UsefulListener : Listener {
         player.createData()
     }
 
-    @EventHandler
-    fun breakBlock(event: PlayerInteractEvent){
-        val block = event.clickedBlock
-        if(block != null && event.action == Action.LEFT_CLICK_BLOCK){
-            block.type = Material.AIR
-        }
-    }
 }

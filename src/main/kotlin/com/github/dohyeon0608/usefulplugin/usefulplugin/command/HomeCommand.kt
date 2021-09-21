@@ -81,6 +81,14 @@ object HomeCommand {
 
             register("homesetting"){
                 requires { isOp }
+                val defaultNameMessage = "${ChatColor.GREEN}기본 홈 이름: ${ChatColor.RESET}${ConfigManager.homeSetting.defaultHomeName}"
+                val maxNameLetterMessage = "${ChatColor.GREEN}최대 홈 이름 글자수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxNameLetter}"
+                val maxHomeCountMessage = "${ChatColor.GREEN}최대 홈 보유수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxHomeCount}"
+
+                executes {
+                    sender.sendMessage("${ChatColor.GREEN}${ChatColor.BOLD}홈 설정", defaultNameMessage, maxNameLetterMessage, maxHomeCountMessage)
+                }
+
                 then("defaultHomeName"){
                     then("name" to string()){
                         executes {
@@ -89,7 +97,7 @@ object HomeCommand {
                         }
                     }
                     executes {
-                        sender.sendMessage("${ChatColor.GREEN}현재 설정된 기본 홈 이름: ${ChatColor.RESET}${ConfigManager.homeSetting.defaultHomeName}")
+                        sender.sendMessage(defaultNameMessage)
                     }
                 }
                 then("maxNameLetter"){
@@ -100,7 +108,7 @@ object HomeCommand {
                         }
                     }
                     executes {
-                        sender.sendMessage("${ChatColor.GREEN}현재 설정된 최대 홈 이름 글자수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxNameLetter}")
+                        sender.sendMessage(maxNameLetterMessage)
                     }
                 }
                 then("maxHomeCount"){
@@ -111,7 +119,7 @@ object HomeCommand {
                         }
                     }
                     executes {
-                        sender.sendMessage("${ChatColor.GREEN}현재 설정된 최대 홈 보유수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxHomeCount}")
+                        sender.sendMessage(maxHomeCountMessage)
                     }
                 }
             }
