@@ -1,4 +1,4 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin.command
+package com.github.dohyeon0608.usefulplugin.command
 
 import io.github.monun.kommand.PluginKommand
 import io.github.monun.kommand.getValue

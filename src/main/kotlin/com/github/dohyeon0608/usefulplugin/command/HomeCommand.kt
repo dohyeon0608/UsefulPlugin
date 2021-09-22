@@ -1,11 +1,19 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin.command
+package com.github.dohyeon0608.usefulplugin.command
 
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home.getHomeList
-import com.github.dohyeon0608.usefulplugin.usefulplugin.HomeGUI
-import com.github.dohyeon0608.usefulplugin.usefulplugin.data.ConfigManager
+import com.github.dohyeon0608.usefulplugin.Home
+import com.github.dohyeon0608.usefulplugin.Home.getHomeList
+import com.github.dohyeon0608.usefulplugin.HomeGUI
+import com.github.dohyeon0608.usefulplugin.util.CommandUtil.hoverMessage
+import com.github.dohyeon0608.usefulplugin.util.CommandUtil.sendMessage
+import com.github.dohyeon0608.usefulplugin.data.ConfigManager
+import com.github.dohyeon0608.usefulplugin.util.CommandMessage.Home.defaultNameMessage
+import com.github.dohyeon0608.usefulplugin.util.CommandMessage.Home.maxHomeCountMessage
+import com.github.dohyeon0608.usefulplugin.util.CommandMessage.Home.maxNameLetterMessage
 import io.github.monun.kommand.PluginKommand
 import io.github.monun.kommand.getValue
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.event.ClickEvent
+import net.kyori.adventure.text.event.HoverEvent
 import org.bukkit.ChatColor
 
 object HomeCommand {
@@ -81,30 +89,31 @@ object HomeCommand {
 
             register("homesetting"){
                 requires { isOp }
-                val defaultNameMessage = "${ChatColor.GREEN}기본 홈 이름: ${ChatColor.RESET}${ConfigManager.homeSetting.defaultHomeName}"
-                val maxNameLetterMessage = "${ChatColor.GREEN}최대 홈 이름 글자수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxNameLetter}"
-                val maxHomeCountMessage = "${ChatColor.GREEN}최대 홈 보유수: ${ChatColor.RESET}${ConfigManager.homeSetting.maxHomeCount}"
 
                 executes {
-                    sender.sendMessage("${ChatColor.GREEN}${ChatColor.BOLD}홈 설정", defaultNameMessage, maxNameLetterMessage, maxHomeCountMessage)
+                    sender.sendMessage("\n${ChatColor.YELLOW}${ChatColor.BOLD}===== Home 설정 =====")
+                    sender.sendMessage(defaultNameMessage, maxNameLetterMessage, maxHomeCountMessage)
                 }
 
                 then("defaultHomeName"){
                     then("name" to string()){
                         executes {
                             val name : String by it
-                            sender.sendMessage(ConfigManager.setConfig(ConfigManager.Path.DEFAULT_HOME, name))
+                            sender.sendMessage(ConfigManager.setData(ConfigManager.Path.DEFAULT_HOME, name))
                         }
                     }
                     executes {
-                        sender.sendMessage(defaultNameMessage)
+//                        sender.sendMessage(defaultNameMessage)
+                        sender.sendMessage(Component.text("${ChatColor.GREEN}기본 홈 이름: ${ChatColor.RESET}${ConfigManager.homeSetting.defaultHomeName}")
+                            .hoverEvent(HoverEvent.showText(hoverMessage("기본 홈 이름")))
+                            .clickEvent(ClickEvent.suggestCommand("/homesetting defaultHomeName ")))
                     }
                 }
-                then("maxNameLetter"){
+                then("maxNameLength"){
                     then("length" to int(1)){
                         executes {
                             val length : Int by it
-                            sender.sendMessage(ConfigManager.setConfig(ConfigManager.Path.MAX_NAME_LETTER, length))
+                            sender.sendMessage(ConfigManager.setData(ConfigManager.Path.MAX_NAME_LENGTH, length))
                         }
                     }
                     executes {
@@ -115,7 +124,7 @@ object HomeCommand {
                     then("count" to int(0, 45)){
                         executes {
                             val count : Int by it
-                            sender.sendMessage(ConfigManager.setConfig(ConfigManager.Path.MAX_HOME_COUNT, count))
+                            sender.sendMessage(ConfigManager.setData(ConfigManager.Path.MAX_HOME_COUNT, count))
                         }
                     }
                     executes {

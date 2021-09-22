@@ -1,7 +1,7 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin
+package com.github.dohyeon0608.usefulplugin
 
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home.getHomeIcon
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home.getHomeList
+import com.github.dohyeon0608.usefulplugin.Home.getHomeIcon
+import com.github.dohyeon0608.usefulplugin.Home.getHomeList
 import net.kyori.adventure.text.Component.text
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor

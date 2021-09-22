@@ -1,8 +1,8 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin.listener
+package com.github.dohyeon0608.usefulplugin.listener
 
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home
-import com.github.dohyeon0608.usefulplugin.usefulplugin.Home.getHomeList
-import com.github.dohyeon0608.usefulplugin.usefulplugin.HomeGUI
+import com.github.dohyeon0608.usefulplugin.Home
+import com.github.dohyeon0608.usefulplugin.Home.getHomeList
+import com.github.dohyeon0608.usefulplugin.HomeGUI
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

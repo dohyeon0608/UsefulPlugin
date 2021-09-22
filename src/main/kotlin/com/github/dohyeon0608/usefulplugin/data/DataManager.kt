@@ -1,6 +1,6 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin.data
+package com.github.dohyeon0608.usefulplugin.data
 
-import com.github.dohyeon0608.usefulplugin.usefulplugin.UsefulPlugin
+import com.github.dohyeon0608.usefulplugin.UsefulPlugin
 import org.bukkit.configuration.InvalidConfigurationException
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player

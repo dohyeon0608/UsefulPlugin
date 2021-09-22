@@ -2,6 +2,12 @@
 서버에 도움 될것 같은 플러그인 (초보작)
 각별님의 kommand를 사용했습니다.
 
+### 1.1 업데이트 내역
+- `maxHomeLetter` -> `maxHomeLength`
+- back 설정 추가
+- 이제 back 명령어에 딜레이를 줄 수 있습니다.
+- 좌클릭시 블록이 바로 사라져버리는 현상이 수정되었습니다.
+
 ## 기본 명령어
 
 ### gm
@@ -10,10 +16,20 @@
   - `gm <int>` : 자신의 게임모드를 `<int>`로 변경합니다 (0~3)
   - `gm <int> <player>` : `<player>`의 게임모드를 `<int>`로 변경합니다
 
-### back
+## 백 명령어
+
+## back
 죽은 자리로 되돌아가는 명령어입니다.
 * 사용 방법
   - `back` : 죽은 자리로 되돌아갑니다.
+
+### backsetting
+백 명령어에 대한 설정 명령어
+* 사용 방법
+  - `backsetting <path>` : `<path>` 설정을 확인합니다.
+  - `backsetting <path> <value>` : `<path>` 설정을 `<value>`로 설정합니다.
+* path 목록
+  - `delayTime` : 명령어 쿨타임
 
 
 ## 홈 명령어
@@ -48,5 +64,5 @@
   - `homesetting <path> <value>` : `<path>` 설정을 `<value>`로 설정합니다.
 * path 목록
   - `defaultHomeName` : 기본 홈 이름
-  - `maxNameLetter` : 홈 이름 길이 제한
+  - `maxNameLength` : 홈 이름 길이
   - `maxHomeCount` : 최대 홈 개수

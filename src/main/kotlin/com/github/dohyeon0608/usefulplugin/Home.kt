@@ -1,8 +1,8 @@
-package com.github.dohyeon0608.usefulplugin.usefulplugin
+package com.github.dohyeon0608.usefulplugin
 
-import com.github.dohyeon0608.usefulplugin.usefulplugin.data.ConfigManager
-import com.github.dohyeon0608.usefulplugin.usefulplugin.data.DataManager.getFileFromPlayer
-import com.github.dohyeon0608.usefulplugin.usefulplugin.data.DataManager.loadPluginData
+import com.github.dohyeon0608.usefulplugin.data.ConfigManager
+import com.github.dohyeon0608.usefulplugin.data.DataManager.getFileFromPlayer
+import com.github.dohyeon0608.usefulplugin.data.DataManager.loadPluginData
 import net.kyori.adventure.text.Component.text
 import org.bukkit.ChatColor
 import org.bukkit.Material
@@ -18,7 +18,7 @@ object Home  {
     private const val iconPath = "icon"
 
     fun setHome(player: Player, name: String = ConfigManager.homeSetting.defaultHomeName){
-        val maxHomeLetter = ConfigManager.homeSetting.maxNameLetter
+        val maxHomeLetter = ConfigManager.homeSetting.maxNameLength
         val maxHomeCount = ConfigManager.homeSetting.maxHomeCount
         if(player.getHomeList().size >= maxHomeCount){
             player.sendMessage("${ChatColor.RED}최대 홈 보유 개수(${maxHomeCount}개)를 초과하였습니다.")
