@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class UsefulPlugin : JavaPlugin() {
 
-    private val enableDebugMod = true
+    private val enableDebugMod = false
 
     companion object {
         lateinit var instance: UsefulPlugin
