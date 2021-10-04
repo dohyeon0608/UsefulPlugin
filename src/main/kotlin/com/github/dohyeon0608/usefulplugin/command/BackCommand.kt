@@ -20,6 +20,8 @@ object BackCommand {
 
             register("backsetting"){
 
+                requires { isOp }
+
                 val maxValue = 1200.0 // tick
 
                 then("delayTime"){
