@@ -11,6 +11,7 @@ object GamemodeCommand {
     fun register(plugin: PluginKommand){
         plugin.run{
             register("gm"){
+                requires { isOp }
                 val map = mapOf(
                     0 to GameMode.SURVIVAL,
                     1 to GameMode.CREATIVE,
